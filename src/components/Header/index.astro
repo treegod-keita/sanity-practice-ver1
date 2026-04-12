@@ -2,6 +2,7 @@
 import HeaderLinks from "@/data/HeaderLinks";
 import Image from "astro/components/Image.astro";
 import logo from "@/assets/images/common/logo.svg";
+import AnchorLink from "@/components/ui/link/AstroLink.astro";
 ---
 
 <header>
@@ -13,9 +14,9 @@ import logo from "@/assets/images/common/logo.svg";
             {
                 HeaderLinks.map((link) => (
                     <li>
-                        <a class="duration-500 hover:text-red-600" href={link.href}>
+                        <AnchorLink class="duration-500 hover:text-red-600" href={link.href}>
                             {link.text}
-                        </a>
+                        </AnchorLink>
                     </li>
                 ))
             }
