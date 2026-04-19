@@ -15,5 +15,10 @@ export default defineType({
       title: 'Description',
       type: 'text',
     }),
+    defineField({
+      name: 'contents',
+      title: '記事文章',
+      type: 'blockContent',
+    }),
   ],
 })

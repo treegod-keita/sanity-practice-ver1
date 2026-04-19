@@ -44,5 +44,10 @@ export const featureType = defineType({
         },
       ],
     }),
+    defineField({
+      name: 'contents',
+      title: '記事文章',
+      type: 'blockContent',
+    }),
   ],
 })

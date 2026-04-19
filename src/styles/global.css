@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@theme {
+}
+
+.inner {
+    @apply container mx-auto box-content min-h-screen max-w-7xl px-10;
+}

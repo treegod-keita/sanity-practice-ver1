@@ -2,7 +2,7 @@
 import { sanityClient } from "sanity:client";
 import Card from "@/components/Feature/card.astro";
 import type { Feature } from "@/types/Feature";
-import { intersection } from "astro:schema";
+import { FEATURE_LIST_QUERY } from "@/sanity/queries/feature";
 
 interface Props {
     class?: string;
@@ -10,12 +10,10 @@ interface Props {
 
 const { class: className } = Astro.props;
 
-const FEATURE_QUERY = `*[_type == "feature"] | order(title desc)[0...12]{_id, title, image, slug, publishedAt, "tags": tags[]->{_id, name}}`;
-
-const features = await sanityClient.fetch<Feature[]>(FEATURE_QUERY);
+const features = await sanityClient.fetch<Feature[]>(FEATURE_LIST_QUERY);
 ---
 
-<div class=`container mx-auto min-h-screen max-w-7xl px-10 box-content pt-25 ${className}`>
+<div class=`inner pt-25 ${className}`>
     <div class="mt-7.5">
         <h2 class="mx-auto w-fit text-4xl">Feature</h2>
         <ul class="mt-15 grid grid-cols-1 gap-6.5 md:grid-cols-3">

@@ -1,3 +1,4 @@
+import type { PortableTextBlock } from "@portabletext/types";
 import type { Tag } from "@/types/Tag";
 
 type Feature = {
@@ -15,6 +16,7 @@ type Feature = {
     };
     publishedAt: string;
     tags: Tag[];
+    contents: PortableTextBlock[];
 };
 
 export type { Feature };

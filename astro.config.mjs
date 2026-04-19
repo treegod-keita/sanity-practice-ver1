@@ -13,8 +13,8 @@ export default defineConfig({
     integrations: [
         // 👇 update these lines
         sanity({
-            projectId: env.SANITY_PROJECT_ID,
-            dataset: env.SANITY_DATASET,
+            projectId: env.PUBLIC_SANITY_PROJECT_ID,
+            dataset: env.PUBLIC_SANITY_DATASET,
             useCdn: false,
             apiVersion: "2026-04-18",
         }),
