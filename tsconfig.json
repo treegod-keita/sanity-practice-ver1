@@ -1,11 +1,12 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
-  "compilerOptions": {
-    "baseUrl": ".", // 追加
-    "paths": {
-      "@/*": ["src/*"] // 追加
+    "extends": "astro/tsconfigs/strict",
+    "include": [".astro/types.d.ts", "**/*"],
+    "exclude": ["dist"],
+    "compilerOptions": {
+        "baseUrl": ".", // 追加
+        "paths": {
+            "@/*": ["src/*"] // 追加
+        },
+        "types": ["@sanity/astro/module"]
     }
-  }
 }

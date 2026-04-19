@@ -1,0 +1,20 @@
+---
+// ./src/pages/feature/[slug].astro
+export function getStaticPaths() {
+    return [
+        { params: { slug: "slug-1" } },
+        { params: { slug: "slug-2" } },
+        { params: { slug: "slug-3" } },
+        { params: { slug: "slug-4" } },
+        { params: { slug: "slug-5" } },
+        { params: { slug: "slug-6" } },
+        { params: { slug: "slug-7" } },
+        { params: { slug: "slug-8" } },
+        { params: { slug: "slug-9" } },
+    ];
+}
+
+const { slug } = Astro.params;
+---
+
+<h1>Feature {slug}</h1>

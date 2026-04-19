@@ -1,11 +1,22 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
+import sanity from "@sanity/astro";
+import { loadEnv } from "vite";
 
-import tailwindcss from '@tailwindcss/vite';
+const env = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()]
-  }
+    vite: {
+        plugins: [tailwindcss()],
+    },
+    integrations: [
+        // 👇 update these lines
+        sanity({
+            projectId: env.SANITY_PROJECT_ID,
+            dataset: env.SANITY_DATASET,
+            useCdn: false,
+            apiVersion: "2026-04-18",
+        }),
+    ],
 });

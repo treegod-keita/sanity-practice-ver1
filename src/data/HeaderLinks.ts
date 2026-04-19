@@ -7,7 +7,7 @@ const HeaderLinks: Link[] = [
     },
     {
         text: "FEATURE",
-        href: "?y=feature",
+        href: "feature",
     },
     {
         text: "CONTACT",
