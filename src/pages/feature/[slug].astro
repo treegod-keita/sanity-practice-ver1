@@ -34,9 +34,9 @@ const feature = await sanityClient.fetch<Feature>(
                 class="[&_a]:text-green-400 [&_h2]:text-3xl [&_h3]:text-2xl [&_h3]:font-bold [&_p]:mt-6"
             >
                 <PortableTextInternal
-                value={feature.contents}
-                components={{ type: { image: PortableTextImage } }}
-                 />
+                    value={feature.contents}
+                    components={{ type: { image: PortableTextImage } }}
+                />
             </div>
         </div>
     </div>

@@ -14,7 +14,8 @@ const { href, target, class: className } = Astro.props;
 </a>
 
 <script>
-    import { astroLink } from "./astro-link";
+    import { astroLink, scrollToAnchorOnLoad } from "./astro-link";
 
     astroLink();
+    scrollToAnchorOnLoad();
 </script>

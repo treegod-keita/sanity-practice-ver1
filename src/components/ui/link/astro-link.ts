@@ -6,9 +6,12 @@ export const astroLink = () => {
         link.addEventListener("click", (e) => {
             const href = link.getAttribute("href") || "";
 
-            if (href.startsWith("?y=")) {
+            const isRootAnchor = href.startsWith("/?y=") && window.location.pathname === "/";
+            const isCurrentAnchor = href.startsWith("?y=");
+
+            if (isRootAnchor || isCurrentAnchor) {
                 e.preventDefault();
-                const targetId = href.replace("?y=", "");
+                const targetId = href.replace("/?y=", "").replace("?y=", "");
                 const element = document.getElementById(targetId);
 
                 if (element) {
@@ -16,5 +19,20 @@ export const astroLink = () => {
                 }
             }
         });
+    });
+};
+
+// 別ページからの遷移後にもスクロールさせる
+export const scrollToAnchorOnLoad = () => {
+    document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const targetId = params.get("y");
+
+        if (targetId) {
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }
     });
 };

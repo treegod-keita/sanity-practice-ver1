@@ -3,15 +3,15 @@ import type { Link } from "@/types/Link";
 const HeaderLinks: Link[] = [
     {
         text: "PICK UP",
-        href: "?y=pick-up",
+        href: "/?y=pick-up",
     },
     {
         text: "FEATURE",
-        href: "feature",
+        href: "/feature",
     },
     {
         text: "CONTACT",
-        href: "?y=contact",
+        href: "/?y=contact",
     },
 ];
 
