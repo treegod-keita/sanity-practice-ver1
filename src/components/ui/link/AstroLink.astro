@@ -1,0 +1,21 @@
+---
+type Props = {
+    href: string;
+    target?: string;
+    class?: string | string[] | Record<string, boolean>;
+};
+
+const { href, target, class: className } = Astro.props;
+---
+
+{/* アンカーリンクを使用するときに利用する */}
+<a href={href} target={target} class:list={[className]} data-link-interaction>
+    <slot />
+</a>
+
+<script>
+    import { astroLink, scrollToAnchorOnLoad } from "./astro-link";
+
+    astroLink();
+    scrollToAnchorOnLoad();
+</script>

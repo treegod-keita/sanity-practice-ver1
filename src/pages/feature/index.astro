@@ -1,0 +1,17 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { sanityClient } from "sanity:client";
+import FeatureContent from "@/components/Feature/index.astro";
+import Card from "@/components/Feature/card.astro";
+import type { Feature } from "@/types/Feature";
+
+const FEATURE_QUERY = `*[_type == "feature"] | order(publishedAt desc)[0...12]{_id, title, image, publishedAt, slug, "tags": tags[]->{_id, name}, contents}`;
+
+const features = await sanityClient.fetch<Feature[]>(FEATURE_QUERY);
+---
+
+<Layout>
+    <section class="pb-30">
+        <FeatureContent />
+    </section>
+</Layout>

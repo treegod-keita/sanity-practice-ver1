@@ -1,0 +1,27 @@
+---
+import HeaderLinks from "@/data/HeaderLinks";
+import Image from "astro/components/Image.astro";
+import logo from "@/assets/images/common/logo.svg";
+import AnchorLink from "@/components/ui/link/AstroLink.astro";
+---
+
+<header>
+    <div class="flex justify-between px-10 py-5">
+        <div class="w-43.75">
+            <a href="/">
+                <Image class="h-full w-full" src={logo} alt="Sneakers" width={175} />
+            </a>
+        </div>
+        <ul class="flex items-center gap-x-10 text-sm">
+            {
+                HeaderLinks.map((link) => (
+                    <li>
+                        <AnchorLink class="duration-500 hover:text-red-600" href={link.href}>
+                            {link.text}
+                        </AnchorLink>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</header>

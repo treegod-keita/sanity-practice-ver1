@@ -1,0 +1,23 @@
+---
+import { sanityClient } from "sanity:client";
+import Card from "@/components/Feature/card.astro";
+import type { Feature } from "@/types/Feature";
+import { FEATURE_LIST_QUERY } from "@/sanity/queries/feature";
+
+interface Props {
+    class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const features = await sanityClient.fetch<Feature[]>(FEATURE_LIST_QUERY);
+---
+
+<div class=`inner pt-25 ${className}`>
+    <div class="mt-7.5">
+        <h2 class="mx-auto w-fit text-4xl">Feature</h2>
+        <ul class="mt-15 grid grid-cols-1 gap-6.5 md:grid-cols-3">
+            {features.map((feature) => <Card feature={feature} />)}
+        </ul>
+    </div>
+</div>

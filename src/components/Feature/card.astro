@@ -1,0 +1,39 @@
+---
+import type { Feature } from "@/types/Feature";
+import type { Tag } from "@/types/Tag";
+import { urlFor } from "@/lib/sanityUrl";
+
+interface Props {
+    feature: Feature;
+}
+
+const { feature } = Astro.props;
+---
+
+<li class="hover:underline">
+    <a href={`/feature/${feature.slug.current}`}>
+        <div class="aspect-[385/257] w-full">
+            <img
+                src={urlFor(feature.image).format("webp").url()}
+                alt=""
+                width={770}
+                class="h-full w-full object-cover"
+            />
+        </div>
+        <div class="flex flex-col gap-y-5 bg-white p-7.5 drop-shadow-xl">
+            <div class="flex flex-wrap gap-x-1">
+                {
+                    feature.tags?.map((tag: Tag) => (
+                        <span class="block rounded-full px-1.5 py-0.5 text-xs ring ring-gray-600 ring-inset">
+                            {tag.name}
+                        </span>
+                    ))
+                }
+            </div>
+            <h2 class="text-sm">{feature.title}</h2>
+            <p class="w-fit self-end text-xs">
+                {new Date(feature.publishedAt).toLocaleDateString()}
+            </p>
+        </div>
+    </a>
+</li>
