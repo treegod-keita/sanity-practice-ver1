@@ -15,7 +15,10 @@
         "dev": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
-        "astro": "astro"
+        "astro": "astro",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "format": "prettier --write '**/*.{astro,ts,tsx,js,mjs,jsx,md,json}' && npm run lint:fix"
     },
     "dependencies": {
         "@portabletext/types": "^4.0.2",
@@ -24,14 +27,22 @@
         "@sanity/image-url": "^2.1.1",
         "@tailwindcss/vite": "^4.2.2",
         "astro": "^6.1.5",
+        "astro-html-beautifier": "^1.0.5",
         "astro-portabletext": "^0.13.0",
+        "astro-relative-links": "^0.4.2",
         "dotenv": "^17.4.2",
         "sharp": "^0.34.5",
         "tailwindcss": "^4.2.2"
     },
     "devDependencies": {
+        "@typescript-eslint/parser": "^8.59.2",
+        "astro-eslint-parser": "^1.4.0",
+        "eslint": "^10.3.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-astro": "^1.7.0",
         "prettier": "3.8.2",
         "prettier-plugin-astro": "0.14.1",
-        "prettier-plugin-tailwindcss": "^0.7.2"
+        "prettier-plugin-tailwindcss": "^0.7.2",
+        "typescript-eslint": "^8.59.2"
     }
 }
